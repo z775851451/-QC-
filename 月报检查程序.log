@@ -90,3 +90,84 @@ ERROR:root:Traceback (most recent call last):
     higher_q = higher_q+higher_q*abs(cv)
 UnboundLocalError: local variable 'higher_q' referenced before assignment
 
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1496, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 784, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 784, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 758, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 744, in config_sjg
+    higher_q = np.quantile(sjg_all.升价格,0.75,interpolation="higher")+sjg_all.升价格.std()
+  File "<__array_function__ internals>", line 5, in quantile
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3930, in quantile
+    return _quantile_unchecked(
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3937, in _quantile_unchecked
+    r, k = _ureduce(a, func=_quantile_ureduce_func, q=q, axis=axis, out=out,
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3515, in _ureduce
+    r = func(a, **kwargs)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 4030, in _quantile_ureduce_func
+    n = np.isnan(ap[-1])
+IndexError: index -1 is out of bounds for axis 0 with size 0
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1496, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 784, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 784, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 758, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 744, in config_sjg
+    higher_q = np.quantile(sjg_all.升价格,0.75,interpolation="higher")+sjg_all.升价格.std()
+  File "<__array_function__ internals>", line 5, in quantile
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3930, in quantile
+    return _quantile_unchecked(
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3937, in _quantile_unchecked
+    r, k = _ureduce(a, func=_quantile_ureduce_func, q=q, axis=axis, out=out,
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3515, in _ureduce
+    r = func(a, **kwargs)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 4030, in _quantile_ureduce_func
+    n = np.isnan(ap[-1])
+IndexError: index -1 is out of bounds for axis 0 with size 0
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1496, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 784, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 784, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 758, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 744, in config_sjg
+    higher_q = np.quantile(sjg_all.升价格,0.75,interpolation="higher")+sjg_all.升价格.std()
+  File "<__array_function__ internals>", line 5, in quantile
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3930, in quantile
+    return _quantile_unchecked(
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3937, in _quantile_unchecked
+    r, k = _ureduce(a, func=_quantile_ureduce_func, q=q, axis=axis, out=out,
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 3515, in _ureduce
+    r = func(a, **kwargs)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py", line 4030, in _quantile_ureduce_func
+    n = np.isnan(ap[-1])
+IndexError: index -1 is out of bounds for axis 0 with size 0
+

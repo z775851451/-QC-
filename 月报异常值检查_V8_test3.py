@@ -1,4 +1,4 @@
-# import _scproxy
+import _scproxy
 from scipy import stats
 import pymssql
 import pandas as pd
@@ -92,6 +92,7 @@ def tc():
 
     for i in tqdm(u_input):
         sleep(0.05)
+
         tqdm.write(f'即将运行{i}_{input_[int(i)]}')
         
         
@@ -503,7 +504,8 @@ def tc():
 
         sku_url_sales.columns = ['平台名称','品类','产品名称','产品_top80']+month+['URL_销售额','URL_ID','SKU_ID','校对值_销额','URL_top80']
 
-        sku_url_sales['校对值_销额'] = sku_url_sales['校对值_销额'].map(lambda x:qfw(x*zsz_dict[Account[14]]))
+        # sku_url_sales['校对值_销额'] = sku_url_sales['校对值_销额'].map(lambda x:qfw(x*zsz_dict[Account[14]]))
+        sku_url_sales['校对值_销额'] = sku_url_sales['校对值_销额']
         sku_url = sku_url_sales
 
         test = coke.copy()
@@ -753,28 +755,36 @@ def tc():
             #比例: 数值越大越严格,依照 all 的情况,(平均值&中位数,来判定样本的整体偏移)
             sjg = df_sjg_80[(df_sjg_80['产品名称']==cpmc)&(df_sjg_80['月份'] == month[-1])]
             sjg_all = df_sjg_80[(df_sjg_80['产品名称']==cpmc)&(df_sjg_80['月份'].isin(month[1:-1]))]
-            # print(sjg_all.shape[0])
-            if config_sjg(sjg_all,sjg)[0]:
-                return f"0|100000|不在抛出逻辑内(样本数量少于5或 偏度小于{config_sjg(sjg_all,sjg)[1]}"
-            # diff_median = 0
-            # # diff_mean = 0
-            else:
-                higher_q = np.quantile(sjg_all.升价格,0.75,interpolation="higher")+sjg_all.升价格.std()
-                lower_q = np.quantile(sjg_all.升价格,0.25,interpolation="higher")-sjg_all.升价格.std()#下四分位数
-                
-                if Account[1] not in(lg_['l_1']+lg_['l_2']):
-                    higher_q = config_sjg(sjg_all,sjg)[2]
-                    lower_q = config_sjg(sjg_all,sjg)[3]
+            if sjg_all.shape[0] != 0:
+                # print(sjg_all.shape[0])
+                if config_sjg(sjg_all,sjg)[0]:
+                    return f"0|100000|不在抛出逻辑内(样本数量少于5或 偏度小于{config_sjg(sjg_all,sjg)[1]}"
+                # diff_median = 0
+                # # diff_mean = 0
                 else:
-                    pass
-                #变异系数,离散
+                    higher_q = np.quantile(sjg_all.升价格,0.75,interpolation="higher")+sjg_all.升价格.std()
+                    lower_q = np.quantile(sjg_all.升价格,0.25,interpolation="higher")-sjg_all.升价格.std()#下四分位数
+                    
+                    if Account[1] not in(lg_['l_1']+lg_['l_2']):
+                        try:
+                            higher_q = config_sjg(sjg_all,sjg)[2]
+                            lower_q = config_sjg(sjg_all,sjg)[3]
+                        except:
+                            higher_q = 100000
+                            lower_q = 0
+                    else:
+                        pass
+                    #变异系数,离散
 
-                int_r=higher_q-lower_q#四分位距
-                try:
-                    lg = pd.cut(sjg_all.升价格, bins=[0,lower_q-0.0000001, higher_q+0.0000001,100000]).value_counts()
-                except:
-                    return f"{lower_q}|{higher_q}|0"
-                return f"{lower_q}|{higher_q}|{lg.to_dict()}"
+                    int_r=higher_q-lower_q#四分位距
+                    try:
+                        lg = pd.cut(sjg_all.升价格, bins=[0,lower_q-0.0000001, higher_q+0.0000001,100000]).value_counts()
+                    except:
+                        return f"{lower_q}|{higher_q}|0"
+                    return f"{lower_q}|{higher_q}|{lg.to_dict()}"
+            else:
+                return f"0|100000|历史无数据"
+                
         # ,lower_q,higher_q,int_r
 
         if len(cpmc_list_80) > 0:
