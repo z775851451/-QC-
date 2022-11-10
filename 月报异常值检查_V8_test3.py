@@ -235,6 +235,11 @@ def tc():
 
         df_url = df_url_all[['月份', '平台名称','品类','产品名称', '销售额','URL_ID','SKU_ID']]
         
+        df_url['平台名称'].replace('B2C-Tmall', '天猫',inplace=True)
+        df_url['平台名称'].replace('B2C-JD', '京东',inplace=True)
+        df_url['平台名称'].replace('B2C-PDD', '拼多多',inplace=True)
+        df_url['平台名称'].replace('B2C-Douyin', '抖音',inplace=True)
+        
         xfsc_li = []
         for i in s_li:
             xfsc_li.append(df[['月份','销售额',i]].assign(细分市场 = i).rename(columns={i:"内容"}))
@@ -1501,11 +1506,11 @@ if xt_ == 'Y':
         print('Error:已停止运行,请查看log')
         logging.error(s) 
 else:
-    try:
-        tc()
-    except:
-        s = traceback.format_exc()
-        print('Error:已停止运行,请查看log')
-        logging.error(s) 
+    # try:
+    tc()
+    # except:
+        # s = traceback.format_exc()
+        # print('Error:已停止运行,请查看log')
+        # logging.error(s) 
 
 

@@ -171,3 +171,25 @@ ERROR:root:Traceback (most recent call last):
     n = np.isnan(ap[-1])
 IndexError: index -1 is out of bounds for axis 0 with size 0
 
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1505, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 653, in tc
+    A = test_sjg[test_sjg['月份'] == month[-1]].pivot_table(
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/frame.py", line 5455, in sort_values
+    k = self._get_label_or_level_values(by, axis=axis)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/generic.py", line 1684, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: ('销售额', '202210')
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1505, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 653, in tc
+    A = test_sjg[test_sjg['月份'] == month[-1]].pivot_table(
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/frame.py", line 5455, in sort_values
+    k = self._get_label_or_level_values(by, axis=axis)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/generic.py", line 1684, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: ('销售额', '202210')
+
