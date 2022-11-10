@@ -1,0 +1,92 @@
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1480, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 96, in tc
+    tqdm.write(f'即将运行{i}_{input_[int(i)]}')
+KeyError: 117
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1480, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 153, in tc
+    month = [Month_(d_month,MONTH_N=13)[0]]+Month_(d_month,MONTH_N=5)
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 130, in Month_
+    edate = datetime.datetime.strptime(MONTH, '%Y%m')+ relativedelta(months=1)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data '' does not match format '%Y%m'
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1480, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 786, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 786, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 760, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 748, in config_sjg
+    higher_q = higher_q+higher_q*abs(cv)
+UnboundLocalError: local variable 'higher_q' referenced before assignment
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1482, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 788, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 788, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 762, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 748, in config_sjg
+    higher_q = higher_q+higher_q*abs(cv)
+UnboundLocalError: local variable 'higher_q' referenced before assignment
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1482, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 788, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 788, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 762, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 748, in config_sjg
+    higher_q = higher_q+higher_q*abs(cv)
+UnboundLocalError: local variable 'higher_q' referenced before assignment
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 1481, in <module>
+    tc()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 787, in tc
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py", line 3909, in map
+    new_values = super()._map_values(arg, na_action=na_action)
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pandas/core/base.py", line 937, in _map_values
+    new_values = map_f(values, mapper)
+  File "pandas/_libs/lib.pyx", line 2467, in pandas._libs.lib.map_infer
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 787, in <lambda>
+    assign_ = cpmc_list_80_df['产品名称'].map(lambda x:t(x))
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 761, in t
+    if config_sjg(sjg_all,sjg)[0]:
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V8_test3.py", line 750, in config_sjg
+    higher_q = higher_q+higher_q*abs(cv)
+UnboundLocalError: local variable 'higher_q' referenced before assignment
+

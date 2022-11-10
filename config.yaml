@@ -1,0 +1,149 @@
+input_ :
+ 1 : ['item', 'MN_DATA_YTN_NEW', 'D_TIME', '平台名称','制造商','品类', '子品牌', '产品名称', '店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','URL_ID','SKU_ID','万元',['CAST ( 贸易模式 AS nvarchar ( 2000 ) )','CAST ( 是否国产 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 钙含量 AS nvarchar ( 2000 ) )','CAST ( 适用人群 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 脂肪含量  AS nvarchar ( 2000 ) )','CAST ( 添加物 AS nvarchar ( 2000 ) )','CAST ( 是否含糖 AS nvarchar ( 2000 ) )']]
+ #安佳
+ # 'anjia_data_cn_new'
+
+ 2: ['send_out','anjia_data_cn_new','D_TIME','平台名称','制造商','品类','子品牌','精准名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','URL_ID','SKU_ID','万元',['CAST (  模式 AS nvarchar ( 2000 ) )','CAST ( 钙质 AS nvarchar ( 2000 ) )','CAST (  ANIMAL AS nvarchar ( 2000 ) )','CAST ( 目标人群  AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 是否含糖 AS nvarchar ( 2000 ) )','CAST ( 外包装类型 AS nvarchar ( 2000 ) )','CAST ( 是否条装 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 品牌所属地 AS nvarchar ( 2000 ) )','CAST ( 产品种类 AS nvarchar ( 2000 ) )']]
+ # 'anjia_data_ytn_new'
+
+ 3: ['send_out','anjia_data_ytn_new','D_TIME','平台名称','制造商','品类','子品牌','精准名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','URL_ID','SKU_ID','万元',['CAST ( 模式  AS nvarchar ( 2000 ) )','CAST ( 进出口 AS nvarchar ( 2000 ) )','CAST ( 产品档次 AS nvarchar ( 2000 ) )','CAST ( 产品种类 AS nvarchar ( 2000 ) )','CAST ( 是否有机  AS nvarchar ( 2000 ) )','CAST ( 包装类型分组 AS nvarchar ( 2000 ) )','CAST ( 蛋白含量 AS nvarchar ( 2000 ) )','CAST ( 添加额外营养 AS nvarchar ( 2000 ) )','CAST ( 乳糖含量 AS nvarchar ( 2000 ) )']]
+ # 'anjia_data_naiyou_new'
+
+ 4: ['send_out', 'anjia_data_naiyou_new', 'D_TIME', '平台名称','制造商', '品类','子品牌', '产品名称', '店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','URL_ID','SKU_ID','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 成分 AS nvarchar ( 2000 ) )','CAST ( 含盐量 AS nvarchar ( 2000 ) )','CAST ( 含糖量 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 再制原制 AS nvarchar ( 2000 ) )','CAST ( 安佳适用人群 AS nvarchar ( 2000 ) )','CAST ( 安佳奶酪形状 AS nvarchar ( 2000 ) )','CAST ( 安佳奶酪分类 AS nvarchar ( 2000 ) )','CAST ( 产品形态 AS nvarchar ( 2000 ) )','CAST ( 产品种类 AS nvarchar ( 2000 ) )','CAST ( 钙含量 AS nvarchar ( 2000 ) )','CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 安佳口味 AS nvarchar ( 2000 ) )']]
+ # 'anjia_data_huangyou_new'
+
+ 5: ['send_out', 'anjia_data_huangyou_new', 'D_TIME', '平台名称','制造商', '品类','子品牌', '产品名称', '店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','URL_ID','SKU_ID','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 是否含糖 AS nvarchar ( 2000 ) )']]
+ # 蒙牛低温 
+ #鲜奶
+ # 'MN_DATA_DIWENxian_NEW'
+
+ 6: ['send_out', 'MN_DATA_DIWENxian_NEW', 'MONTH', 'PLATFORM_NAME','品牌','商品类型', '子品牌_ST', '标准名称', 'SHOP_NAME', '销售额','','[销量(L/KG)]','URL_ID','SKU_ID','元',['CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )']]
+ #酸奶
+ # 'MN_DATA_DIWENSUAN_NEW'
+
+ 7: ['item', 'MN_DATA_DIWENSUAN_NEW', 'MONTH', 'PLATFORM_NAME','品牌','商品类型', '子品牌_ST', '标准名称', 'SHOP_NAME', '销售额','','[销量(L/KG)]','URL_ID','SKU_ID','元',['CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 含糖量 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )']]
+ #乳酸菌
+ # 'MN_DATA_DIWENRSJ_NEW'
+
+ 8: ['item', 'MN_DATA_DIWENRSJ_NEW', 'MONTH', 'PLATFORM_NAME','品牌','商品类型', '子品牌_ST', '标准名称', 'SHOP_NAME', '销售额','','[销量(L/KG)]','URL_ID','SKU_ID','元',['CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 商品类型 AS nvarchar ( 2000 ) )']]
+
+ #雀巢
+ # 'quechao_milk_quan_temp'
+
+ 9: ['item', 'quechao_milk_quan_temp', 'month', '平台','制造商', 'Category','子品牌', '产品名称', '店铺名称', '[销售额(万)]','升价格','[升销量]','url_id','sku_id','万元',['CAST ( 是否含糖 AS nvarchar ( 2000 ) )','CAST ( 适用人群 AS nvarchar ( 2000 ) )','CAST ( 钙含量 AS nvarchar ( 2000 ) )','CAST ( 含脂量 AS nvarchar ( 2000 ) )']]
+
+ #蒙牛 
+ # 'MENGNIU_DATA_SFMP_NEW'
+
+ 10: ['item','MENGNIU_DATA_SFMP_NEW','MONTH','平台','制造商','子品类','品牌','产品名称','进口国产', '销售额','','[销量（L/KG）]','URL_ID','SKU_ID','元',['CAST ( 贸易模式 AS nvarchar ( 2000 ) )','CAST ( 进口国产 AS nvarchar ( 2000 ) )','CAST ( 适用年龄段 AS nvarchar ( 2000 ) )']]
+
+ #百事麦片
+ # 'baishi_data_maipian'
+ 11: ['item', 'baishi_data_maipian','月份', 'PLATFORM_NAME','品牌','产品品类', '品牌', '产品名称', 'SHOP_NAME', '[销售额(KRMB)]','','[销量(KG)]','URL_ID','SKU_ID','千元',['CAST ( 冷食分类 AS nvarchar ( 2000 ) )','CAST ( 是否组合装 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 国家 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 包装 AS nvarchar ( 2000 ) )','CAST ( 食用方法 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 是否有糖 AS nvarchar ( 2000 ) )']]
+
+ #伊利水
+ # 'yili_data_water_new'
+
+ 12: ['item', 'yili_data_water_new', '月份', '平台','制造商','品类', '品牌', '产品名称', '店铺名称', '[销售额(万)]','','升销量','url_id','sku_id','万元',['CAST (  包装类型 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )']]
+
+
+ #伊利
+ #液奶
+ # 'yili_DATA_YTN_NEW'
+
+ 13: ['item','yili_DATA_YTN_NEW','D_TIME','平台名称','制造商','品类','子品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 是否有促销 AS nvarchar ( 2000 ) )','CAST ( 是否国产 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 特殊品类 AS nvarchar ( 2000 ) )','CAST ( 乳糖含量 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 钙含量 AS nvarchar ( 2000 ) )','CAST ( 适用人群 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 是否含果粒 AS nvarchar ( 2000 ) )','CAST ( 品牌是否进口 AS nvarchar ( 2000 ) )']]
+ 
+ #低温酸奶
+ # 'YILI_DATA_diwen_suan_new'
+
+ 14: ['item','YILI_DATA_diwen_suan_new','MONTH','平台名称','制造商','品类','子品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 是否有促销 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 含糖量 AS nvarchar ( 2000 ) )','CAST ( 蛋白质 AS nvarchar ( 2000 ) )','CAST ( 是否周期购 AS nvarchar ( 2000 ) )','CAST ( 是否奶卡 AS nvarchar ( 2000 ) )']]
+ #低温鲜奶
+ # 'YILI_DATA_DIWEN_xian_new'
+
+ 15: ['item','YILI_DATA_DIWEN_xian_new','MONTH','平台名称','制造商','品类','子品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 是否有促销 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 含糖量 AS nvarchar ( 2000 ) )','CAST ( 蛋白质 AS nvarchar ( 2000 ) )','CAST ( 是否周期购 AS nvarchar ( 2000 ) )','CAST ( 是否奶卡 AS nvarchar ( 2000 ) )']]
+ #冰品
+ # 'YILI_DATA_BINGPIN_NEW'
+
+ 16: ['item','YILI_DATA_BINGPIN_NEW','D_TIME','平台名称','制造商','品类','子品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 是否有促销 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 产地 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 口味拆分 AS nvarchar ( 2000 ) )']]
+
+ #伊利婴儿粉 1
+ # 'YILI_DATA_593_new'
+
+ 17: ['item','YILI_DATA_593_new','MONTH','平台名称','品牌','品类','子品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 是否有促销 AS nvarchar ( 2000 ) )','CAST ( 段数 AS nvarchar ( 2000 ) )','CAST ( 牛羊奶粉 AS nvarchar ( 2000 ) )','CAST ( 是否国产 AS nvarchar ( 2000 ) )','CAST ( 产地 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 是否特殊配方 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 特殊品类 AS nvarchar ( 2000 ) )','CAST ( 供货方式 AS nvarchar ( 2000 ) )','CAST ( 伊利国产标准 AS nvarchar ( 2000 ) )','CAST ( 国产外资 AS nvarchar ( 2000 ) )']]
+
+ # 奶酪
+ # 'yili_DATA_naiyou_NEW'
+
+ 18: ['item','yili_DATA_naiyou_NEW','MONTH','平台名称','制造商','品类','子品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 档位 AS nvarchar ( 2000 ) )','CAST ( 供货方式 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 成分 AS nvarchar ( 2000 ) )','CAST ( 含盐量 AS nvarchar ( 2000 ) )','CAST ( 含糖量 AS nvarchar ( 2000 ) )','CAST ( 类型 AS nvarchar ( 2000 ) )','CAST ( 奶酪分类 AS nvarchar ( 2000 ) )','CAST ( 适用人群 AS nvarchar ( 2000 ) )','CAST ( 系列 AS nvarchar ( 2000 ) )','CAST ( 奶酪一级分类 AS nvarchar ( 2000 ) )','CAST ( 奶酪二级分类 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 奶酪形状 AS nvarchar ( 2000 ) )','CAST ( 分类 AS nvarchar ( 2000 ) )','CAST ( 口味拆分 AS nvarchar ( 2000 ) )','CAST ( 制作工艺 AS nvarchar ( 2000 ) )']]
+
+ # 厚乳酪
+ # 'YILI_DATA_GTRJ_NEW'
+
+ 19: ['item','YILI_DATA_GTRJ_NEW','MONTH','平台名称','品牌','品类','品牌','产品名称','店铺名称', '[销售额SKU)]','升价格','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 是否夹心 AS nvarchar ( 2000 ) )','CAST ( 外包装类型 AS nvarchar ( 2000 ) )','CAST ( 系列 AS nvarchar ( 2000 ) )']]
+
+ #百事可乐
+ # 'baishi_coke_new'
+
+ 20: ['item','baishi_coke_new','MONTH','平台名称','制造商','品类','品牌','产品名称','店铺名称', '[销售额SKU)]','','[销量(L/KG)]','URL','SKU_ID','千元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 是否国产 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 系列 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 一级类目 AS nvarchar ( 2000 ) )','CAST ( 一级类目英文 AS nvarchar ( 2000 ) )','CAST ( 二级类目 AS nvarchar ( 2000 ) )','CAST ( 二级类目英文 AS nvarchar ( 2000 ) )','CAST ( 运动饮料细分 AS nvarchar ( 2000 ) )']]
+
+ # 可口可乐
+ # 'COKE_E_NEW'
+
+ 21: ['send_out', 'COKE_E_NEW', 'D_T_MONTH', 'D_C_PLATFORM','D_P_MANUFACTURE','D_P_CATEGORY','D_P_BRAND', 'D_P_PRODUCTNAME', 'D_C_SHOPNAME', 'M_S_SALES','','M_S_PHYSICALVOLUME','URL','SKU_ID','万元',['CAST ( D_C_TRADE AS nvarchar ( 2000 ) )','CAST ( D_P_CATEGORY AS nvarchar ( 2000 ) )','CAST ( D_P_SUB_CATEGORY AS nvarchar ( 2000 ) )','CAST ( 是否国产 AS nvarchar ( 2000 ) )','CAST ( D_P_PACKINGTYPE AS nvarchar ( 2000 ) )']]
+
+ # Costa 销额单位：元
+ # 'costa_data_new'
+
+ 22: ['item', 'costa_data_new', '月份', '平台','制造商', '品类','品牌', '产品名称', '店铺名称', '销售额','','升销量','url_id','SKU_ID','元',['CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 子品类 AS nvarchar ( 2000 ) )']]
+
+ # 雅士利
+ # 'YASHILY_DATA_594_NEW'
+
+ 23: ['item', 'YASHILY_DATA_594_NEW', 'Month', '平台','制造商','品类', '品牌', '产品名称', '店铺名称', '销售额','','[销售量(L)]','URL_ID','SKU_ID','万元',['CAST ( 模式 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 动物奶源 AS nvarchar ( 2000 ) )','CAST ( 适用人群 AS nvarchar ( 2000 ) )']]
+
+ # 红牛
+ # 'redbull_data_new'
+
+ 24: ['item', 'redbull_data_new', '月份', '平台名称','制造商','品类' ,'品牌', '产品名称', '店铺名称', '[销售额(万)]','','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 包装类型 AS nvarchar ( 2000 ) )','CAST ( 口味 AS nvarchar ( 2000 ) )','CAST ( 贸易模式 AS nvarchar ( 2000 ) )','CAST ( 生产工艺 AS nvarchar ( 2000 ) )']]
+
+
+ # 家乐氏麦片
+ # 'jialeshi_data_maipian'
+
+ 25: ['item', 'jialeshi_data_maipian', 'Month', '平台名称','制造商','品类' , '品牌', '产品名称', '店铺名称', '销售额','','[销售量（KG）]','url_id','sku_id','元',['CAST ( 包装 AS nvarchar ( 2000 ) )']]
+
+ # 卡士低温奶
+ # 'kashi_data_new'
+
+ 26: ['item', 'kashi_data_new', 'month', '平台','制造商','子品类' , '品牌', '产品名称', 'shop_name', '销售额','','升销量','url_id','sku_id','元',['CAST ( 脂肪含量 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )']]
+
+
+ # 德国马牌
+ # 'mapai_data_new'
+
+ 27: ['item', 'mapai_data_new', 'MONTH', 'platform_name','品牌','category_name', '品牌', '标准名称', 'shop_name', '销售额','','销量','url_id','sku_id','元',['CAST ( category_name AS nvarchar ( 2000 ) )','CAST ( 防爆胎 AS nvarchar ( 2000 ) )','CAST ( 适用季节 AS nvarchar ( 2000 ) )','CAST ( OE AS nvarchar ( 2000 ) )','CAST ( 自修复 AS nvarchar ( 2000 ) )','CAST ( 静音棉 AS nvarchar ( 2000 ) )','CAST ( CSS AS nvarchar ( 2000 ) )']]
+
+ #倍耐力
+ # 'beinaili_data_new'
+
+ 28: ['item', 'beinaili_data_new', 'MONTH', 'shop_info','品牌','轮胎类型', '品牌', '标准名称', 'shop_name', '销售额','','销量','url_id','sku_id','元',['CAST ( 是否防爆 AS nvarchar ( 2000 ) )','CAST ( 适用季节 AS nvarchar ( 2000 ) )','CAST ( size_pattern AS nvarchar ( 2000 ) )','CAST ( 是否轻卡 AS nvarchar ( 2000 ) )']]
+
+
+ # 好记（拌饭酱和酱油） HJ_DATA_BFJ_NEW、HJ_DATA_jiangyou_NEW
+ # 'HJ_DATA_BFJ_NEW'
+
+ 29: ['item', 'HJ_DATA_BFJ_NEW', 'MONTH', 'PLATFORM_ID','品牌','品类', '品牌', '标准名称', 'SHOP_NAME', '销售额','','销量','URL_ID','SKU_ID','元',['CAST ( 商品品类 AS nvarchar ( 2000 ) )','CAST ( 包装 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )']]
+
+ # 'HJ_DATA_jiangyou_NEW'
+
+ 30: ['item', 'HJ_DATA_jiangyou_NEW', 'MONTH', 'PLATFORM_ID','品牌','品类', '品牌', '标准名称', 'SHOP_NAME', '销售额','','销量','URL_ID','SKU_ID','元',['CAST ( 适用人群 AS nvarchar ( 2000 ) )','CAST ( 是否有机 AS nvarchar ( 2000 ) )','CAST ( 包装 AS nvarchar ( 2000 ) )','CAST ( 是否减盐 AS nvarchar ( 2000 ) )','CAST ( 是否进口 AS nvarchar ( 2000 ) )','CAST ( 是否零添加 AS nvarchar ( 2000 ) )']]
+
+ # 'HJ_TOP品牌_醋料酒'
+
+ 31: ['item', 'HJ_TOP品牌_醋料酒', '时间', '店铺类型','品牌','品类', '品牌', '标准名称', 'SHOP_NAME', '销售额','','销量','URL_ID','SKU_ID','元',['CAST ( 品类 AS nvarchar ( 2000 ) )']]
+
+ #养乐多
+
+ # 'yakult_data_new'
+
+ 32: ['item', 'yakult_data_new', 'month', '平台','制造商','子品类' ,'品牌', '产品名称', '店铺名称', '销售额','','[销量(L/KG)]','url_id','sku_id','万元',['CAST ( 含糖量 AS nvarchar ( 2000 ) )']]

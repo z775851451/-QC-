@@ -1,0 +1,34 @@
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V3.py", line 804, in <module>
+    yb()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V3.py", line 4, in yb
+    import pymssql
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pymssql/__init__.py", line 3, in <module>
+    from ._pymssql import *
+  File "src/pymssql/_pymssql.pyx", line 1, in init pymssql._pymssql
+ImportError: dlopen(/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pymssql/_mssql.cpython-38-darwin.so, 0x0002): symbol not found in flat namespace (_iconv)
+
+ERROR:root:Traceback (most recent call last):
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V3.py", line 804, in <module>
+    yb()
+  File "/Users/yuanbo/Documents/工作/星图/资料1/客户数据库QC程序及文件/月报异常值检查_V3.py", line 4, in yb
+    import pymssql
+  File "/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pymssql/__init__.py", line 3, in <module>
+    from ._pymssql import *
+  File "src/pymssql/_pymssql.pyx", line 1, in init pymssql._pymssql
+ImportError: dlopen(/Users/yuanbo/opt/anaconda3/lib/python3.8/site-packages/pymssql/_mssql.cpython-38-darwin.so, 0x0002): symbol not found in flat namespace (_iconv)
+
+ERROR:root:Traceback (most recent call last):
+  File "月报异常值检查_V5.py", line 826, in yb
+    zlg(i)
+  File "月报异常值检查_V5.py", line 786, in zlg
+    for i in range(len(res-1)):
+TypeError: unsupported operand type(s) for -: 'list' and 'int'
+
+ERROR:root:Traceback (most recent call last):
+  File "月报异常值检查_V5.py", line 837, in <module>
+    yb()
+  File "月报异常值检查_V5.py", line 824, in yb
+    tqdm.write(f'即将运行{i}_{input_[int(i)]}')
+ValueError: invalid literal for int() with base 10: ''
+
