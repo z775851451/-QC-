@@ -1,5 +1,5 @@
 #coding:utf-8
-# import _scproxy
+import _scproxy
 import pymssql
 import pandas as pd
 import datetime

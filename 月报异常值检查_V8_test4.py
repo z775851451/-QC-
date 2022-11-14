@@ -193,7 +193,7 @@ def tc():
         if Account[1] in(config_dp()['Date_Format'][0]):
             sql = "SELECT \
                 SUBSTRING( REPLACE(" + Account[2] + ",'-',''),0,7),\
-                CAST ( " + Account[3] + " AS nvarchar ),\
+                CAST ( (CASE WHEN ISNUMERIC(" + Account[3]+ " ) = 1  THEN (CASE WHEN " + Account[3]+ "  = 1  THEN '京东' WHEN " + Account[3]+ "  = 5 THEN '天猫' WHEN " + Account[3]+ "  = 3 THEN '苏宁易购'WHEN " + Account[3]+ "  = 4 THEN '真快乐'WHEN " + Account[3]+ "  = 6 THEN '当当网'WHEN " + Account[3]+ "  = 50 THEN '拼多多'WHEN " + Account[3]+ "  = 107 THEN '抖音'WHEN " + Account[3]+ "  = 13 THEN '我买网'ELSE CAST(" + Account[3]+ "  AS CHAR)END)ELSE CAST(" + Account[3]+ "  AS CHAR) END) AS nvarchar ),\
                 CAST ( " + Account[4] + " AS nvarchar ),\
                 CAST ( " + Account[5] + " AS nvarchar ),\
                 CAST ( " + Account[6] + " AS nvarchar ( 1000 ) ),\
@@ -214,7 +214,7 @@ def tc():
             #send_out
             sql = "SELECT \
                 " + Account[2] + ",\
-                CAST ( " + Account[3] + " AS nvarchar ),\
+                CAST ( (CASE WHEN ISNUMERIC(" + Account[3]+ " ) = 1  THEN (CASE WHEN " + Account[3]+ "  = 1  THEN '京东' WHEN " + Account[3]+ "  = 5 THEN '天猫' WHEN " + Account[3]+ "  = 3 THEN '苏宁易购'WHEN " + Account[3]+ "  = 4 THEN '真快乐'WHEN " + Account[3]+ "  = 6 THEN '当当网'WHEN " + Account[3]+ "  = 50 THEN '拼多多'WHEN " + Account[3]+ "  = 107 THEN '抖音'WHEN " + Account[3]+ "  = 13 THEN '我买网'ELSE CAST(" + Account[3]+ "  AS CHAR)END)ELSE CAST(" + Account[3]+ "  AS CHAR) END) AS nvarchar ),\
                 CAST ( " + Account[4] + " AS nvarchar ),\
                 CAST ( " + Account[5] + " AS nvarchar ),\
                 CAST ( " + Account[6] + " AS nvarchar ( 1000 ) ),\
@@ -235,6 +235,7 @@ def tc():
 
         df_url = df_url_all[['月份', '平台名称','品类','产品名称', '销售额','URL_ID','SKU_ID']]
         
+        # 1、京东；  5、天猫；3、苏宁易购；4、真快乐； 6、当当网；50、拼多多；107、抖音 13、我买网
         df_url['平台名称'].replace('B2C-Tmall', '天猫',inplace=True)
         df_url['平台名称'].replace('B2C-JD', '京东',inplace=True)
         df_url['平台名称'].replace('B2C-PDD', '拼多多',inplace=True)
@@ -647,8 +648,8 @@ def tc():
         jg_url_ = df_url.drop_duplicates(subset=['平台名称','品类','产品名称','URL_ID','SKU_ID','销售额'])
 
 
-        test_ = test.merge(jg_url_[jg_url_['月份'] == month[-1]][['平台名称','品类','产品名称','销售额','URL_ID','SKU_ID']],how='left',on=['平台名称','品类','产品名称','销售额'])
-        test_ = test_.drop_duplicates(subset = ['产品名称','URL_ID'])
+        test_ = test.merge(jg_url_[['平台名称','品类','产品名称','销售额','URL_ID','SKU_ID']],how='left',on=['平台名称','品类','产品名称','销售额'])
+        # test_ = test_.drop_duplicates(subset = ['产品名称','URL_ID'])
 
         test_sjg = test_.copy()
         test_sjg = pd.merge(test_sjg,top20,how='left',on=['品类','制造商'])
@@ -667,7 +668,7 @@ def tc():
         B = test_sjg[test_sjg['月份'] != month[-1]].pivot_table(
                             values=['销售额', '销量'],
                             columns='月份',
-                            index=['制造商', '品类', '平台名称', '产品名称']+['重点'],
+                            index=s_index+['重点'],
                             aggfunc={
                                 '销售额': np.sum,
                                 '销量': np.sum,},
@@ -675,7 +676,7 @@ def tc():
         # pd.concat([A,B])
         # B
 
-        C = A.merge(B,how = 'left',on=['制造商','品类','平台名称','产品名称','重点'])
+        C = A.merge(B,how = 'left',on=['制造商','品类','平台名称','产品名称','重点','URL_ID','SKU_ID'])
         coke_toushi = sjg(C)
 
         df_url_xse = df_url_all[df_url_all['月份'] == month[-1]].groupby(by = ['平台名称','品类','URL_ID']).agg({"销售额":"sum","销量":"sum"}).reset_index()

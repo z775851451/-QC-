@@ -1,5 +1,5 @@
 # %%
-# import _scproxy
+import _scproxy
 import pymssql
 import pandas as pd
 import numpy as np
@@ -7,13 +7,28 @@ import openpyxl
 import datetime
 from openpyxl import load_workbook
 import json  
+import warnings
+
+warnings.filterwarnings('ignore')
 
 # %%
-x_df = pd.read_excel(r'C:\工作\检查程序\检查程序1\模版/品牌旗舰店判断规则表.xlsx',sheet_name = '客户产品名称')
-x_df_zy = pd.read_excel(r'C:\工作\检查程序\检查程序1\模版/品牌旗舰店判断规则表.xlsx',sheet_name = '平台自营判断')
-x_df_gzys = pd.read_excel(r'C:\工作\检查程序\检查程序1\模版/品牌旗舰店判断规则表.xlsx',sheet_name = '整体映射规则')
-x_df_gzys2 = pd.read_excel(r'C:\工作\检查程序\检查程序1\模版/品牌旗舰店判断规则表.xlsx',sheet_name = '独立映射规则')
+x_df = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '客户产品名称')
+x_df_zy = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '平台自营判断')
+x_df_gzys = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '整体映射规则')
+x_df_gzys2 = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '独立映射规则')
 # x_df.数据库名.to_list()[0]
+
+#20221114
+inp_date = input('仅运行当前日期之后(格式:202201):')
+inp_ku = input('仅运行所选客户,逗号分隔(蒙牛,伊利(以模版文件客户名为准,运行全部 输入all)):').split(',')
+
+if inp_ku[0] != 'all':
+    x_df = x_df[x_df['客户'].isin(inp_ku)].reset_index()
+else:
+    pass
+
+# %%
+
 
 # %%
 dict_all = {}
@@ -58,11 +73,9 @@ def sql_connect(server = '192.168.0.15',user = 'zhongxin_yanfa',password = 'Xin_
                             CAST ( {x_df.判断子品牌[no]} AS nvarchar ( 500 ) ),\
                             CAST ( {x_df.店铺类型[no]} AS nvarchar ( 500 ) )\
                             FROM {x_df.数据库名[no]} \
-                            where {x_df.店铺类型[no]} is not null and {x_df.店铺类型[no]} != '海外购' and {x_df.判断品牌[no]} != '未知' " \
-                            f"and SUBSTRING(REPLACE({x_df.判断月份[no]}, '-', ''), 0, 7)  IN ('202210','202209','202208','202207')"
-
-
-    print(sql)
+                            where {x_df.店铺类型[no]} is not null and {x_df.店铺类型[no]} != '海外购' and {x_df.判断品牌[no]} != '未知'\
+                            and SUBSTRING(REPLACE({x_df.判断月份[no]}, '-', ''), 0, 7) >= {inp_date}" 
+                                
     syntun_cursor.execute(sql)
     s = syntun_cursor.fetchall()
     syntun_cursor.close()
@@ -187,12 +200,18 @@ class lg:
 # test_ = sql_connect(no=33)
 
 # %%
-# lg().res(test_)
+# print(f'结果/品牌旗舰店判断规则表-结果_({inp_ku[0:2]}....xlsx')
 
 # %%
 res = []
 for i in range(len(x_df)):
     print(x_df.数据库名[i])
+    
+    try:
+        lg().res(sql_connect(no=i))
+    except:
+        continue
+    
     df = lg().res(sql_connect(no=i))
     #
     pp = lg().res(sql_connect(no=i)).drop_duplicates(subset=['品牌'])['品牌']
@@ -237,37 +256,34 @@ for i in range(len(x_df)):
     
         
     res.append(df)
-df_ = pd.concat(res)
+try:
+    df_ = pd.concat(res)
 
+
+    df_ = df_.drop_duplicates(subset=['客户','数据库名','平台名称','店铺名称','制造商','品牌','店铺类型'])[['客户','数据库名','平台名称','店铺名称','制造商','品牌','店铺类型','异常分类','程序判定']]
+    # df_ = df_.assign(程序判定 = df_['店铺类型'] == '')
+
+    sl = pd.DataFrame(list(df_['数据库名'].value_counts().to_dict().items()),
+                    columns=['数据库名称', '抛出数量'])
+
+
+    import openpyxl
+    from openpyxl import load_workbook
+
+    bsgg_workbook = load_workbook(r'模版/品牌旗舰店判断规则表.xlsx')
+    bsgg_writer = pd.ExcelWriter(r'模版/品牌旗舰店判断规则表.xlsx',
+                            engine='openpyxl')
+    bsgg_writer.book= bsgg_workbook
+    #防止模版损坏先保存一个
+    bsgg_workbook.save(r'模版/品牌旗舰店判断规则表.xlsx')
+
+
+
+    df_.to_excel(bsgg_writer, sheet_name='抛出',na_rep='',index=False)
+    sl.to_excel(bsgg_writer, sheet_name='抛出数量预览',na_rep='',index=False)
+
+    bsgg_workbook.save(f'结果/品牌旗舰店判断规则表-结果_{inp_ku[0:2]}等{len(inp_ku)}个库.xlsx')
+    bsgg_workbook.close()
+except:
+    print('当前运行的内容输出为空,已中断此次运行')
 # %%
-df_ = df_.drop_duplicates(subset=['客户','数据库名','平台名称','店铺名称','制造商','品牌','店铺类型'])[['客户','数据库名','平台名称','店铺名称','制造商','品牌','店铺类型','异常分类','程序判定']]
-# df_ = df_.assign(程序判定 = df_['店铺类型'] == '')
-
-sl = pd.DataFrame(list(df_['数据库名'].value_counts().to_dict().items()),
-                   columns=['数据库名称', '抛出数量'])
-
-
-# %%
-import openpyxl
-from openpyxl import load_workbook
-
-bsgg_workbook = load_workbook(r'C:\工作\检查程序\检查程序1\模版\品牌旗舰店判断规则表.xlsx')
-bsgg_writer = pd.ExcelWriter(r'C:\工作\检查程序\检查程序1\模版\品牌旗舰店判断规则表.xlsx',
-                        engine='openpyxl')
-bsgg_writer.book= bsgg_workbook
-#防止模版损坏先保存一个
-bsgg_workbook.save(r'C:\工作\检查程序\检查程序1\模版\品牌旗舰店判断规则表.xlsx')
-
-
-
-df_.to_excel(bsgg_writer, sheet_name='抛出',na_rep='',index=False)
-sl.to_excel(bsgg_writer, sheet_name='抛出数量预览',na_rep='',index=False)
-
-bsgg_workbook.save(r'C:\工作\检查程序\检查程序1\结果\品牌旗舰店判断规则表-结果_1109.xlsx')
-bsgg_workbook.close()
-
-
-# %%
-
-
-
