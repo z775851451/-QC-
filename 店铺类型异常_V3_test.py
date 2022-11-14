@@ -1,5 +1,5 @@
 # %%
-import _scproxy
+# import _scproxy
 import pymssql
 import pandas as pd
 import numpy as np
@@ -9,6 +9,7 @@ from openpyxl import load_workbook
 import json  
 import warnings
 
+
 warnings.filterwarnings('ignore')
 
 # %%
@@ -17,7 +18,10 @@ x_df_zy = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name 
 x_df_gzys = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '整体映射规则')
 x_df_gzys2 = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '独立映射规则')
 # x_df.数据库名.to_list()[0]
-
+# %%
+print('客户列表')
+print(x_df['客户'].to_list())
+# %%
 #20221114
 inp_date = input('仅运行当前日期之后(格式:202201):')
 inp_ku = input('仅运行所选客户,逗号分隔(蒙牛,伊利(以模版文件客户名为准,运行全部 输入all)):').split(',')
@@ -26,9 +30,6 @@ if inp_ku[0] != 'all':
     x_df = x_df[x_df['客户'].isin(inp_ku)].reset_index()
 else:
     pass
-
-# %%
-
 
 # %%
 dict_all = {}
@@ -56,7 +57,6 @@ z = {**{
 },**dict(zip(x_df_zy['店铺名称'],x_df_zy['店铺类型']))}
 
 # %%
-
 
 # %%
 def sql_connect(server = '192.168.0.15',user = 'zhongxin_yanfa',password = 'Xin_yanfa',database = None,sql = None,no=0):
