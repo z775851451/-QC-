@@ -1,5 +1,5 @@
 #coding:utf-8
-import _scproxy
+# import _scproxy
 import pymssql
 import pandas as pd
 import datetime
@@ -24,21 +24,21 @@ def sql_connect(server='192.168.0.15',user='zhongxin_zyanbo',password='ZhangYB_0
     return s
 
 
-import os
-def mkdir(path):
-        folder = os.path.exists(path)
-        if not folder:    
-                os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
-                print('检测无 [模版] 文件夹,程序将自动创建,请将模版( 客户字段及内容_有效性.xlsx )放置到此处')#判断是否存在文件夹如果不存在则创建为文件夹
-                input('放置后确认将运行')
-        else:
-                # print('正在存放至 [模版] 📁')
-                pass
-mkdir('模版')
+# import os
+# def mkdir(path):
+#         folder = os.path.exists(path)
+#         if not folder:    
+#                 os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
+#                 print('检测无 [模版] 文件夹,程序将自动创建,请将模版( 客户字段及内容_有效性.xlsx )放置到此处')#判断是否存在文件夹如果不存在则创建为文件夹
+#                 input('放置后确认将运行')
+#         else:
+#                 # print('正在存放至 [模版] 📁')
+#                 pass
+# mkdir('模版')
 
 # df = pd.read_excel(r'模版/客户字段及内容_有效性.xlsx')
 
-df = pd.DataFrame(sql_connect(sql = 'select * from 客户字段及内容_有效性'),columns = ['客户名','品类','数据库名','字段名','字段内容'])
+df = pd.DataFrame(sql_connect(sql = 'select CAST ( 客户名 AS nvarchar ( 500 ) ),CAST ( 品类 AS nvarchar ( 500 ) ),CAST ( 数据库名 AS nvarchar ( 500 ) ),CAST ( 字段名 AS nvarchar ( 500 ) ),CAST ( 字段内容 AS nvarchar ( 500 ) ) from 客户字段及内容_有效性'),columns = ['客户名','品类','数据库名','字段名','字段内容'])
 
 # df_sta = df.copy()
 # df_sta['数据库名'] = df_sta['数据库名'].str.replace(']', '')

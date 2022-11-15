@@ -12,6 +12,19 @@ from time import sleep
 
 start  = datetime.datetime.now()
 
+def sql_connect(server='192.168.0.15',user='zhongxin_zyanbo',password='ZhangYB_068',database='QC',sql=None):
+    syntun_conn = pymssql.connect(server=server,
+                            user=user,
+                            password=password,
+                            database=database)
+    syntun_cursor = syntun_conn.cursor()
+
+    syntun_cursor.execute(sql)
+    s = syntun_cursor.fetchall()
+    syntun_cursor.close()
+    syntun_conn.close()
+    return s
+
 
 # import subprocess
 
@@ -20,22 +33,25 @@ start  = datetime.datetime.now()
 #     os.startfile(file_path)
     
 
-import os
-def mkdir(path):
-        folder = os.path.exists(path)
-        if not folder:    
-                os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
-                print('检测无 [模版] 文件夹,程序将自动创建,请将模版( 客户字段及内容_一对多.xlsx )放置到此处')#判断是否存在文件夹如果不存在则创建为文件夹
-                input('放置后确认将运行')
-        else:
-                # print('正在存放至 [模版] 📁')
-                pass
-mkdir('模版')
+# import os
+# def mkdir(path):
+#         folder = os.path.exists(path)
+#         if not folder:    
+#                 os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
+#                 print('检测无 [模版] 文件夹,程序将自动创建,请将模版( 客户字段及内容_一对多.xlsx )放置到此处')#判断是否存在文件夹如果不存在则创建为文件夹
+#                 input('放置后确认将运行')
+#         else:
+#                 # print('正在存放至 [模版] 📁')
+#                 pass
+# mkdir('模版')
 
 
 
 
-df = pd.read_excel('模版/客户字段及内容_一对多.xlsx')
+# df = pd.read_excel('模版/客户字段及内容_一对多.xlsx')
+# 客户名	品类	数据库名	字段1	字段2	判断
+df = pd.DataFrame(sql_connect(sql = 'select CAST ( 客户名 AS nvarchar ( 500 ) ),CAST ( 品类 AS nvarchar ( 500 ) ),CAST ( 数据库名 AS nvarchar ( 500 ) ),CAST ( 字段1 AS nvarchar ( 500 ) ),CAST ( 字段2 AS nvarchar ( 500 ) ),CAST ( 判断 AS nvarchar ( 500 ) ) from 客户字段及内容_一对多'),columns = ['客户名','品类','数据库名','字段1','字段2','判断'])
+
 # ,sheet_name='')
 df=df[['客户名','品类','数据库名','字段1','字段2','判断']]
 df1=df.reset_index()

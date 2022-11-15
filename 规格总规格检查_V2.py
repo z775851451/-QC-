@@ -32,23 +32,37 @@ start  = datetime.datetime.now()
 from tqdm import tqdm
 from time import sleep
 
-import os
-def mkdir(path):
-        folder = os.path.exists(path)
-        if not folder:    
-                os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
-                print('检测无 [模版] 文件夹,程序将自动创建,请将模版( 客户规格套装数判断.xlsx )放置到此处')#判断是否存在文件夹如果不存在则创建为文件夹
-                input('放置后确认将运行')
-        else:
-                # print('正在存放至 [模版] 📁')
-                pass
-mkdir('模版')
+# import os
+# def mkdir(path):
+#         folder = os.path.exists(path)
+#         if not folder:    
+#                 os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
+#                 print('检测无 [模版] 文件夹,程序将自动创建,请将模版( 客户规格套装数判断.xlsx )放置到此处')#判断是否存在文件夹如果不存在则创建为文件夹
+#                 input('放置后确认将运行')
+#         else:
+#                 # print('正在存放至 [模版] 📁')
+#                 pass
+# mkdir('模版')
 
 
+def sql_connect(server='192.168.0.15',user='zhongxin_zyanbo',password='ZhangYB_068',database='QC',sql=None):
+    syntun_conn = pymssql.connect(server=server,
+                            user=user,
+                            password=password,
+                            database=database)
+    syntun_cursor = syntun_conn.cursor()
 
+    syntun_cursor.execute(sql)
+    s = syntun_cursor.fetchall()
+    syntun_cursor.close()
+    syntun_conn.close()
+    return s
 
-namegz = pd.read_excel(r'模版/客户规格套装数判断.xlsx',sheet_name=['数据库及字段名'])
-kehudf = namegz['数据库及字段名']
+# '客户','品类','数据库名','单规格是否带单位','产品名称字段名','单规格字段名','套装数字段名','总规格字段名','制造商字段名'
+# namegz = pd.read_excel(r'模版/客户规格套装数判断.xlsx',sheet_name=['数据库及字段名'])
+namegz = pd.DataFrame(sql_connect(sql = 'select CAST ( 客户 AS nvarchar ( 500 ) ),CAST ( 品类 AS nvarchar ( 500 ) ),CAST ( 数据库名 AS nvarchar ( 500 ) ),CAST ( 单规格是否带单位 AS nvarchar ( 500 ) ),CAST ( 产品名称字段名 AS nvarchar ( 500 ) ),CAST ( 单规格字段名 AS nvarchar ( 500 ) ),CAST ( 套装数字段名 AS nvarchar ( 500 ) ),CAST ( 总规格字段名 AS nvarchar ( 500 ) ),CAST ( 制造商字段名 AS nvarchar ( 500 ) ) from 产品名称规格套装数判断'),columns = ['客户','品类','数据库名','单规格是否带单位','产品名称字段名','单规格字段名','套装数字段名','总规格字段名','制造商字段名'])
+# kehudf = namegz['数据库及字段名']
+kehudf = namegz
 paochu_group1 = []
 yichang_group1= []
 a_li=[]
