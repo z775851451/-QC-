@@ -830,10 +830,6 @@ def tc():
 
         res.append(df_std(test_t,month,['细分市场','内容']))
 
-
-
-
-
         #删除std、avg 相关字段
         for i in range(len(res)):
             res[i] = res[i].filter(regex ='^[^std|^avg|^js]')
