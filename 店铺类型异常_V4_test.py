@@ -115,7 +115,7 @@ import difflib
 def idf(s1, s2):
     return difflib.SequenceMatcher(None, s1, s2).quick_ratio()
 
-idf('伊利 舒化 低脂型 无乳糖牛奶 220ml','伊利 舒化 低脂型 无乳糖牛奶 220ml*24')
+idf('官方旗舰店 220ml','旗舰店官方 220ml')
 # xsd = 0.7
 # df[df.apply(lambda x: ('旗舰店'in(x.店铺名称) ) & ((x.制造商 in(x.店铺名称))|(x.品牌 in(x.店铺名称))|(idf(lambda x: x in'旗舰店',x.店铺名称,x.制造商) >= xsd)|(idf(lambda x: x in'旗舰店',x.店铺名称,x.品牌) >= xsd)|(idf(lambda x: x in'品牌旗舰店',x.店铺名称,x.制造商) >= xsd)|(idf(lambda x: x in'品牌旗舰店',x.店铺名称,x.品牌) >= xsd)) ,axis=1)]
 
