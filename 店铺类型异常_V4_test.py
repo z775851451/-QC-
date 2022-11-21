@@ -1,6 +1,6 @@
 # %%
 #coding:utf-8
-# import _scproxy
+import _scproxy
 import pymssql
 import pandas as pd
 import numpy as np
@@ -25,7 +25,6 @@ def sql_connect(server='192.168.0.15',user='zhongxin_zyanbo',password='ZhangYB_0
     syntun_cursor.close()
     syntun_conn.close()
     return s
-
 # %%
 # x_df = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '客户产品名称')
 # x_df_zy = pd.read_excel('模版/品牌旗舰店判断规则表.xlsx',sheet_name = '平台自营判断')

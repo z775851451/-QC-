@@ -149,6 +149,9 @@ for i in range(len(use_df_)):
 pd.concat(a_box,axis=0)
 
 # mer_df.merge(pd.concat(a_box,axis=0)[['月份','数据库名','备份数据库名','平台','新数据库销售额','新数据库升销量','备份数据库销售额','备份数据库升销量','销售额差异','升销量差异','是否差异']],how='right', on=['数据库名'])
+# %%
+
+
 
 # %%
 # a_box,b_box,c_box
@@ -157,12 +160,8 @@ from openpyxl import load_workbook
 with pd.ExcelWriter(f'结果/{inp_}月报对比_结果.xlsx') as mn_writer:
     mer_df.merge(pd.concat(a_box,axis=0)[['月份','数据库名','备份数据库名','平台','新数据库销售额','新数据库升销量','备份数据库销售额','备份数据库升销量','销售额差异','升销量差异','是否差异']],how='right', on=['数据库名']).to_excel(mn_writer,sheet_name='平台',na_rep='',index=False)
     mer_df.merge(pd.concat(b_box,axis=0)[['月份','数据库名','备份数据库名','平台','品牌','新数据库销售额','新数据库升销量','备份数据库销售额','备份数据库升销量','销售额差异','升销量差异','是否差异']],how='right', on=['数据库名']).to_excel(mn_writer,sheet_name='平台 品牌',na_rep='',index=False)
-    try:
+    if len(c_box) > 0:
         mer_df.merge(pd.concat(c_box,axis=0)[['月份','数据库名','备份数据库名','平台','品牌','产品名称','新数据库销售额','新数据库升销量','备份数据库销售额','备份数据库升销量','销售额差异','升销量差异','是否差异']],how='right', on=['数据库名']).to_excel(mn_writer,sheet_name='平台 品牌 产品名称',na_rep='',index=False)
-    except:
+    else:
         pass
-
-
-
-
 # %%

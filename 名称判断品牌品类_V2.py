@@ -2,6 +2,7 @@
 客户产品名称和规则表的大类\客户值字段值需对应
 规则表的列名不要重复
 """
+#%%
 # import _scproxy
 
 import pymssql
@@ -40,15 +41,15 @@ def sql_connect(server='192.168.0.15',user='zhongxin_zyanbo',password='ZhangYB_0
     syntun_conn.close()
     return s
 
-
+#%%
 start  = datetime.datetime.now()
 # namegz = pd.read_excel(r'模版/客户名称判断规则表.xlsx',sheet_name=['客户产品名称','规则表','抛出'])
 # guize = namegz['规则表']
 # kehudf = namegz['客户产品名称']
 
 
-guize = pd.DataFrame(sql_connect(sql = 'select CAST ( 大类 AS nvarchar ( 500 ) ),CAST (  客户 AS nvarchar ( 500 ) ),CAST (  源制造商 AS nvarchar ( 500 ) ),CAST (  产品系列 AS nvarchar ( 500 ) ),CAST (  包含内容1 AS nvarchar ( 500 ) ),CAST (  包含内容2 AS nvarchar ( 500 ) ),CAST (  不包含内容1 AS nvarchar ( 500 ) ),CAST (  不包含内容2 AS nvarchar ( 500 ) ),CAST (  不包含内容3 AS nvarchar ( 500 ) ),CAST (  品牌 AS nvarchar ( 500 ) ),CAST (  制造商 AS nvarchar ( 500 ) ),CAST (  子品类 AS nvarchar ( 500 ) ) from 产品名称判断品牌品类_基础表'),columns=['大类','客户','源制造商','产品系列','包含内容1','包含内容2','不包含内容1','不包含内容2','不包含内容3','品牌','制造商','子品类'])
-kehudf = pd.DataFrame(sql_connect(sql = 'select CAST (大类 AS nvarchar ( 500 ) ),CAST (  客户 AS nvarchar ( 500 ) ),CAST (  品类 AS nvarchar ( 500 ) ),CAST (  数据库名 AS nvarchar ( 500 ) ),CAST (  字段名 AS nvarchar ( 500 ) ),CAST (  判断制造商 AS nvarchar ( 500 ) ),CAST (  判断品牌 AS nvarchar ( 500 ) ),CAST (  判断品类 AS nvarchar ( 500 ) ) from 产品名称判断品牌品类_对照表'),columns=['大类','客户','品类','数据库名','字段名','判断制造商','判断品牌','判断品类'])
+guize = pd.DataFrame(sql_connect(sql = 'select CAST ( 大类 AS nvarchar ( 500 ) ),CAST ( 大类 AS nvarchar ( 500 ) ),CAST (  客户 AS nvarchar ( 500 ) ),CAST (  源制造商 AS nvarchar ( 500 ) ),CAST (  产品系列 AS nvarchar ( 500 ) ),CAST (  包含内容1 AS nvarchar ( 500 ) ),CAST (  包含内容2 AS nvarchar ( 500 ) ),CAST (  不包含内容1 AS nvarchar ( 500 ) ),CAST (  不包含内容2 AS nvarchar ( 500 ) ),CAST (  不包含内容3 AS nvarchar ( 500 ) ),CAST (  品牌 AS nvarchar ( 500 ) ),CAST (  制造商 AS nvarchar ( 500 ) ),CAST (  子品类 AS nvarchar ( 500 ) ) from 产品名称判断品牌品类_基础表'),columns=['0','大类','客户','源制造商','产品系列','包含内容1','包含内容2','不包含内容1','不包含内容2','不包含内容3','品牌','制造商','子品类'])
+kehudf = pd.DataFrame(sql_connect(sql = 'select CAST (大类 AS nvarchar ( 500 ) ),CAST ( 大类 AS nvarchar ( 500 ) ),CAST (  客户 AS nvarchar ( 500 ) ),CAST (  品类 AS nvarchar ( 500 ) ),CAST (  数据库名 AS nvarchar ( 500 ) ),CAST (  字段名 AS nvarchar ( 500 ) ),CAST (  判断制造商 AS nvarchar ( 500 ) ),CAST (  判断品牌 AS nvarchar ( 500 ) ),CAST (  判断品类 AS nvarchar ( 500 ) ) from 产品名称判断品牌品类_对照表'),columns=['0','大类','客户','品类','数据库名','字段名','判断制造商','判断品牌','判断品类'])
 
 guize.replace(np.nan, '', inplace=True)
 
@@ -120,8 +121,12 @@ for i in tqdm(range(len(kehudf))):
         ku_df = ku_df[['大类','客户','品类','数据库名','产品名称', '产品系列', '制造商', '品牌', '子品类','规则判断品牌','规则判断品类']]
         sheet_lis.append(ku_df)
 # 库表合并
-ku_df0 = pd.concat(sheet_lis,axis=0)
+#%%
 
+# ku_df0 = pd.concat(sheet_lis,axis=0)
+ku_df0
+
+#%%
 
 # def mkdir(path):
 #         folder = os.path.exists(path)
@@ -141,3 +146,5 @@ with pd.ExcelWriter('结果/名称判断异常-结果.xlsx') as mc_writer:
 end  = datetime.datetime.now()
 print("程序运行时间："+str((end-start).seconds)+"秒")
 
+
+# %%
